@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:imthon/bloc/basket/basket_bloc.dart';
 import 'package:imthon/bloc/basket/basket_event.dart';
 import 'package:imthon/bloc/evos_bloc/evos_bloc.dart';
-import 'package:imthon/data/form_status/form_status.dart';
 import 'package:imthon/data/models/basket_model.dart';
 import 'package:imthon/data/models/product_model.dart';
 import 'package:imthon/screens/routes.dart';
@@ -59,7 +58,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           ),
         ],
       ),
-      body: BlocConsumer<ProductBloc, ProductState>(
+      body: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) {
           return SingleChildScrollView(
             child: Column(
@@ -192,6 +191,23 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               basketModel: basketModel,
                             ),
                           );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.green,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(16),
+                              topLeft: Radius.circular(16),
+                            ),
+                          ),
+                          content: Text(
+                            "Basketga bitta mahsulot qoshildi",
+                            textAlign: TextAlign.center,
+                            style: AppTextStyle.width600
+                                .copyWith(fontSize: 20.w, color: Colors.white),
+                          ),
+                        ),
+                      );
                     },
                     child: Container(
                       width: double.infinity,
@@ -216,28 +232,25 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ),
           );
         },
-        listener: (BuildContext context, ProductState state) {
-          if (state.formStatus == FormStatus.success) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: Colors.red,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(16),
-                    topLeft: Radius.circular(16),
-                  ),
-                ),
-                content: Text(
-                  "Basketga bitta mahsulot qoshildi",
-                  textAlign: TextAlign.center,
-                  style: AppTextStyle.width600
-                      .copyWith(fontSize: 20.w, color: Colors.green),
-                ),
-              ),
-            );
-          }
-        },
       ),
     );
   }
 }
+
+//    ScaffoldMessenger.of(context).showSnackBar(
+//               SnackBar(
+//                 backgroundColor: Colors.red,
+//                 shape: const RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.only(
+//                     topRight: Radius.circular(16),
+//                     topLeft: Radius.circular(16),
+//                   ),
+//                 ),
+//                 content: Text(
+//                   "Basketga bitta mahsulot qoshildi",
+//                   textAlign: TextAlign.center,
+//                   style: AppTextStyle.width600
+//                       .copyWith(fontSize: 20.w, color: Colors.green),
+//                 ),
+//               ),
+//             );
