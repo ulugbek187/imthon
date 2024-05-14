@@ -13,6 +13,9 @@ import '../../utils/styles/size.dart';
 import 'widgets/check.dart';
 import 'widgets/shop_items.dart';
 
+
+
+
 class BasketScreen extends StatefulWidget {
   const BasketScreen({super.key});
 
