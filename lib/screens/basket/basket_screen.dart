@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:imthon/bloc/basket/basket_bloc.dart';
 import 'package:imthon/bloc/basket/basket_event.dart';
 import 'package:imthon/bloc/basket/basket_state.dart';
@@ -9,7 +8,6 @@ import 'package:imthon/utils/image/appimage.dart';
 import 'package:lottie/lottie.dart';
 import '../../data/models/basket_model.dart';
 import '../../utils/colors/app_colors.dart';
-import '../../utils/icons/AppIcons.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../utils/styles/size.dart';
 import 'widgets/check.dart';
@@ -40,12 +38,12 @@ class _BasketScreenState extends State<BasketScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SvgPicture.asset(AppIcons.arrowBack),
-        ),
+        // leading: IconButton(
+        //   onPressed: () {
+        //     // Navigator.pop(context);
+        //   },
+        //   icon: SvgPicture.asset(AppIcons.arrowBack),
+        // ),
         title: Text(
           "Shopping cart",
           style: AppTextStyle.width500.copyWith(

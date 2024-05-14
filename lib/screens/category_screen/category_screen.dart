@@ -135,7 +135,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             mainAxisSpacing: 5,
                             crossAxisSpacing: 5,
                             childAspectRatio:
-                                0.8, // Adjust aspect ratio as needed
+                                0.7, // Adjust aspect ratio as needed
                           ),
                           itemCount: widget.category == 'All'
                               ? state.products.length
