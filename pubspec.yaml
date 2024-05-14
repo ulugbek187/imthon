@@ -1,0 +1,57 @@
+name: imthon
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.9
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
+  connectivity_plus: ^6.0.3
+  firebase_messaging: ^14.9.1
+  firebase_storage: ^11.7.4
+  firebase_auth: ^4.19.4
+  google_sign_in: ^6.2.1
+  flutter_timezone: ^1.0.4
+  lottie: ^3.1.0
+  firebase_core: ^2.30.1
+  cloud_firestore: ^4.17.2
+  toast: ^0.3.0
+  cached_network_image: ^3.3.1
+  zoom_tap_animation: ^1.1.0
+#  flutter_screenutil: ^5.9.0
+  flutter_local_notifications: ^17.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/image/
+    - assets/icon/
+    - assets/fonts/
+    - assets/lotie/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Black.otf
+        - asset: assets/fonts/inter/Inter-Bold.otf
+        - asset: assets/fonts/inter/Inter-Italic.otf
+        - asset: assets/fonts/inter/Inter-Light.otf
+        - asset: assets/fonts/inter/Inter-Medium.otf
+        - asset: assets/fonts/inter/Inter-Regular.otf
+        - asset: assets/fonts/inter/Inter-SemiBold.otf

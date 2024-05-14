@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "854718923510",
+    "project_id": "imthon-5",
+    "storage_bucket": "imthon-5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854718923510:android:847e06c689bfc5071b62d7",
+        "android_client_info": {
+          "package_name": "com.example.imthon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqwtbyILzsKvcwSBx83gVByVCyGuq87uU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
