@@ -195,7 +195,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               productName: widget.category == 'All'
                                   ? state.products[index].productName
                                   : ctPr[index].productName,
-                              order: ctPr[index].price.toString(),
+                              order: widget.category == 'All'
+                                  ? state.products[index].globalCategory
+                                  : ctPr[index].globalCategory,
                             );
                           },
                         ),

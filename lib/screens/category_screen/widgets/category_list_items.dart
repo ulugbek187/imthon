@@ -157,7 +157,7 @@ class ListViewContainer extends StatelessWidget {
                           width: 10.w,
                         ),
                         Text(
-                          "$order Orders",
+                          order,
                           style: AppTextStyle.width400
                               .copyWith(color: Colors.grey),
                         ),

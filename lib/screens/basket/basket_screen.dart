@@ -13,9 +13,6 @@ import '../../utils/styles/size.dart';
 import 'widgets/check.dart';
 import 'widgets/shop_items.dart';
 
-
-
-
 class BasketScreen extends StatefulWidget {
   const BasketScreen({super.key});
 
@@ -27,9 +24,9 @@ class _BasketScreenState extends State<BasketScreen> {
   @override
   void initState() {
     Future.microtask(
-          () => context.read<BasketBloc>().add(
-        ListenBasketEvent(),
-      ),
+      () => context.read<BasketBloc>().add(
+            ListenBasketEvent(),
+          ),
     );
     super.initState();
   }
@@ -63,8 +60,7 @@ class _BasketScreenState extends State<BasketScreen> {
             for (var element in state.baskets) {
               countOfProductsList.add(element.countOfProducts);
             }
-          } else {
-          }
+          } else {}
           if (state.baskets.isEmpty) {
             return Center(
               child: Lottie.asset(AppImages.basket),
@@ -91,7 +87,7 @@ class _BasketScreenState extends State<BasketScreen> {
                         ),
                         ...List.generate(
                           state.baskets.length,
-                              (index) => ShopContainer(
+                          (index) => ShopContainer(
                             imageUrl: state.baskets[index].imageUrl,
                             productName: state.baskets[index].productName,
                             price: state.baskets[index].allPrice,
@@ -99,16 +95,16 @@ class _BasketScreenState extends State<BasketScreen> {
                             plusOnTap: () {
                               countOfProductsList[index]++;
                               BasketModel basketModel =
-                              state.baskets[index].copyWith(
+                                  state.baskets[index].copyWith(
                                 countOfProducts: countOfProductsList[index],
                                 allPrice: countOfProductsList[index] *
                                     state.baskets[index].price,
                               );
                               context.read<BasketBloc>().add(
-                                UpdateBasketEvent(
-                                  basketModel: basketModel,
-                                ),
-                              );
+                                    UpdateBasketEvent(
+                                      basketModel: basketModel,
+                                    ),
+                                  );
                             },
                             minusOnTap: () {
                               countOfProductsList[index]--;
@@ -117,30 +113,30 @@ class _BasketScreenState extends State<BasketScreen> {
                               }
                               if (isDeleting) {
                                 context.read<BasketBloc>().add(
-                                  DeleteBasketEvent(
-                                    uuid: state.baskets[index].uuid,
-                                  ),
-                                );
+                                      DeleteBasketEvent(
+                                        uuid: state.baskets[index].uuid,
+                                      ),
+                                    );
                                 isDeleting = false;
                               }
                               BasketModel basketModel =
-                              state.baskets[index].copyWith(
+                                  state.baskets[index].copyWith(
                                 countOfProducts: countOfProductsList[index],
                                 allPrice: countOfProductsList[index] *
                                     state.baskets[index].price,
                               );
                               context.read<BasketBloc>().add(
-                                UpdateBasketEvent(
-                                  basketModel: basketModel,
-                                ),
-                              );
+                                    UpdateBasketEvent(
+                                      basketModel: basketModel,
+                                    ),
+                                  );
                             },
                             onTap: () {
                               context.read<BasketBloc>().add(
-                                DeleteBasketEvent(
-                                  uuid: state.baskets[index].uuid,
-                                ),
-                              );
+                                    DeleteBasketEvent(
+                                      uuid: state.baskets[index].uuid,
+                                    ),
+                                  );
                             },
                           ),
                         ),
@@ -162,9 +158,9 @@ class _BasketScreenState extends State<BasketScreen> {
                         children: [
                           ...List.generate(
                             state.baskets.length,
-                                (index) => CheckoutItem(
+                            (index) => CheckoutItem(
                               countOfProducts:
-                              state.baskets[index].countOfProducts,
+                                  state.baskets[index].countOfProducts,
                               allSumma: state.baskets[index].allPrice,
                               productName: state.baskets[index].productName,
                             ),
@@ -224,12 +220,13 @@ class _BasketScreenState extends State<BasketScreen> {
               ],
             );
           }
-          return const SizedBox();
+          return const CircularProgressIndicator();
         },
       ),
     );
   }
 }
+
 double calculateAllPrice(List<BasketModel> baskets) {
   double summa = 0;
   for (var element in baskets) {
